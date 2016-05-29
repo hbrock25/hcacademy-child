@@ -132,7 +132,7 @@ function pmpro_level_name_shortcode( $atts ) {
         if(!empty($level) && !empty($level->enddate))
                 $content = $level->name;
         else
-                $content = "---";
+                $content = "None";
 
         return $content;
 }
