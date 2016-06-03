@@ -172,7 +172,7 @@ function pmpro_expire_text_shortcode( $atts ) {
         if(!empty($level) && !empty($level->enddate))
                 $content = "<p><strong>Your membership level:</strong> " . $level->name . "<br /><strong>Expires: </strong> " . date(get_option('date_format'), $level->enddate) . "</p>";
         else
-                $content = "None";
+                $content = "";
 
         return $content;
 }
