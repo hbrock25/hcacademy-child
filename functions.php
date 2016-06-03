@@ -139,3 +139,42 @@ function pmpro_level_name_shortcode( $atts ) {
 
 add_shortcode('pmpro_level_name', 'pmpro_level_name_shortcode');
 
+function pmpro_expire_text_shortcode( $atts ) {
+        //make sure PMPro is active                                                                     
+        if(!function_exists('pmpro_getMembershipLevelForUser'))
+                return;
+
+        //get attributes                                                                                
+        $a = shortcode_atts( array(
+            'user' => '',
+        ), $atts );
+
+        //find user                                                                                     
+        if(!empty($a['user']) && is_numeric($a['user'])) {
+                $user_id = $a['user'];
+        } elseif(!empty($a['user']) && strpos($a['user'], '@') !== false) {
+                $user = get_user_by('email', $a['user']);
+                $user_id = $user->ID;
+        } elseif(!empty($a['user'])) {
+                $user = get_user_by('login', $a['user']);
+                $user_id = $user->ID;
+        } else {
+                $user_id = false;
+        }
+
+        //no user ID? bail                                                                              
+        if(!isset($user_id))
+                return;
+
+        //get the user's level                                                                          
+        $level = pmpro_getMembershipLevelForUser($user_id);
+
+        if(!empty($level) && !empty($level->enddate))
+                $content = "<p><strong>Your membership level:</strong> " . $level->name . "<br /><strong>Expires: </strong> " . date(get_option('date_format'), $level->enddate) . "</p>";
+        else
+                $content = "None";
+
+        return $content;
+}
+
+add_shortcode('pmpro_expire_text', 'pmpro_expire_text_shortcode');
