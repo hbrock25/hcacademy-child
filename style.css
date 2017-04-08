@@ -8,3 +8,20 @@ Version: 1.0.0
 Text Domain:  Avada
 */
 
+/* The style for the inter-site navigation at the top */
+
+.fusion-secondary-header {
+  background-color: #FFF; 
+  border-bottom-color: #cdb200;
+  .fusion-align-left {
+    padding-top: 10px;
+    img {		       
+      height: 60px;
+      margin-right: 30px;
+      padding-bottom: 10px;
+      .selected {
+	background-color: #ddd
+      }
+    }
+  }
+}
