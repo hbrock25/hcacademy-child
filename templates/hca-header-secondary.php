@@ -17,7 +17,7 @@ $content_2 = avada_secondary_header_content( 'header_right_content' );
 		<img style="height: 80px; margin-right: 30px; padding-bottom: 10px" src="/wp-content/themes/hcacademy-child/images/hc-banner-logo.jpg" />
 	    </a>
 	    <a href="https://harpcolumnmusic.com">
-		<img style="height: 80px; margin-right: 30px; padding-bottom: 10px" src="/wp-content/uploads/2016/06/HCA-logo-web.png" />
+		<img style="height: 80px; margin-right: 30px; padding-bottom: 10px" src="/wp-content/themes/hcacademy-child/images/hcmusic-logo.png" />
 	    </a>
 	    <a href="/">
 		<img style="height: 80px; padding-bottom: 10px; background-color: #ddd" src="/wp-content/uploads/2016/06/HCA-logo-web.png" />
