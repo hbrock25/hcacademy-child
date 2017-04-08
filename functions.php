@@ -185,7 +185,7 @@ function hca_avada_secondary_header() {
     if ( ! in_array( Avada()->settings->get( 'header_layout' ), array( 'v2', 'v3', 'v4', 'v5' ) ) ) {
         return;
     }
- 	echo "Potrzebie";
+    get_template_part( 'templates/hca-header-secondary' );
 }
 
 function hca_change_secondary_header_action() {
