@@ -12,7 +12,7 @@ $content_2 = avada_secondary_header_content( 'header_right_content' );
 
 <div class="fusion-secondary-header" style="background-color: #FFF">
     <div class="fusion-row">
-        <div class="fusion-alignleft">
+        <div class="fusion-alignleft" style="padding-top: 10px; padding-bottom: 10px">
 	    <a href="https://www.harpcolumn.com">
 		<img style="height: 70px; margin-right: 10px" src="/wp-content/themes/hcacademy-child/images/hc-banner-logo.jpg" />
 	    </a>
@@ -27,8 +27,7 @@ $content_2 = avada_secondary_header_content( 'header_right_content' );
             <div class="fusion-alignright"><?php echo $content_2; ?></div>
         <?php endif; ?>
     </div>
-    <div class="fusion-row" style="min-height: 2px; background-color: #cdb200"></div>
 </div>
-
+<div class="fusion-secondary-header" style="min-height: 2px; background-color: #cdb200" />
 
 
