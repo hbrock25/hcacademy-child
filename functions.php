@@ -178,3 +178,21 @@ function pmpro_expire_text_shortcode( $atts ) {
 }
 
 add_shortcode('pmpro_expire_text', 'pmpro_expire_text_shortcode');
+
+/* Avada code that adds the secondary header actions -- to override */
+
+function hca_avada_secondary_header() {
+    if ( ! in_array( Avada()->settings->get( 'header_layout' ), array( 'v2', 'v3', 'v4', 'v5' ) ) ) {
+        return;
+    }
+ 	echo "Potrzebie";
+}
+
+function hca_change_secondary_header_action() {
+    remove_action('avada_header', 'avada_secondary_header', 10);
+    add_action('avada_header', 'hca_avada_secondary_header', 10);
+}
+add_action( "init", "hca_change_secondary_header_action", 1000 );
+
+
+
