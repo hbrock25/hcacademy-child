@@ -14,13 +14,13 @@ $content_2 = avada_secondary_header_content( 'header_right_content' );
     <div class="fusion-row">
         <div class="fusion-alignleft" style="padding-top: 10px">
 	    <a href="https://www.harpcolumn.com">
-		<img style="height: 70px; margin-right: 10px" src="/wp-content/themes/hcacademy-child/images/hc-banner-logo.jpg" />
+		<img style="height: 70px; margin-right: 10px; padding-bottom: 10px" src="/wp-content/themes/hcacademy-child/images/hc-banner-logo.jpg" />
 	    </a>
 	    <a href="https://harpcolumnmusic.com">
-		<img style="height: 70px; margin-right: 10px" src="/wp-content/uploads/2016/06/HCA-logo-web.png" />
+		<img style="height: 70px; margin-right: 10px; padding-bottom: 10px" src="/wp-content/uploads/2016/06/HCA-logo-web.png" />
 	    </a>
 	    <a href="/">
-		<img style="height: 70px; margin-right: 10px; background-color: #ccc" src="/wp-content/uploads/2016/06/HCA-logo-web.png" />
+		<img style="height: 70px; margin-right: 10px; padding-bottom: 10px; background-color: #ddd" src="/wp-content/uploads/2016/06/HCA-logo-web.png" />
 	    </a>
 	</div>
         <?php if ( $content_2 ) : ?>
