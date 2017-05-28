@@ -11,7 +11,7 @@ License: GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 */
 
-function pmpro_expiration_date_shortcode( $atts ) {
+function pmpro_status_widget_shortcode( $atts ) {
 
   //make sure PMPro is active
 	if(!function_exists('pmpro_getMembershipLevelForUser'))
@@ -54,7 +54,7 @@ function pmpro_expiration_date_shortcode( $atts ) {
 	return $content;
 }
 
-add_shortcode('pmpro_expiration_date', 'pmpro_expiration_date_shortcode');
+add_shortcode('pmpro_status_widget', 'pmpro_status_widget_shortcode');
   
 
 /*

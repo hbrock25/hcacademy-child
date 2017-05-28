@@ -24,7 +24,7 @@ $content_2 = avada_secondary_header_content( 'header_right_content' );
 	    </a>
 	</div>
 	<div class="hc-pmpro-exp-widget">
-	    [pmpro_expiration_date]
+	    [pmpro_status_widget]
 	</div>
         <?php if ( $content_2 ) : ?>
             <div class="fusion-alignright"><?php echo $content_2; ?></div>
