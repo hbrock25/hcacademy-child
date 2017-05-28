@@ -181,6 +181,30 @@ add_shortcode('pmpro_expire_text', 'pmpro_expire_text_shortcode');
 
 /* Avada code that adds the secondary header actions -- to override */
 
+/* get status info for the header */
+function pmpro_status_widget() {
+
+    //make sure PMPro is active
+    if(!function_exists('pmpro_getMembershipLevelForUser'))
+	return;
+    
+    $user_id = get_current_user_id();
+
+    //no user ID? bail
+    if(!$user_id)
+	return '<a href="/my-account">Login</a> | <a href="/my-account">Register</a>';
+
+    //get the user's level
+    $level = pmpro_getMembershipLevelForUser($user_id);
+
+    if(!empty($level) && !empty($level->enddate) && $level->id > 1)
+	$content = 'Your membership expires on ' . date(get_option('date_format'), $level->enddate) . '. <a href="/renew">Renew</a> | <a href="/my-account">My Account</a> | <a href="/my-account/customer-logout">Logout</a>';
+    else
+	$content = '<a href="/join">Join</a> | <a href="/my-account">My Account</a> | <a href="/my-account/customer-logout">Logout</a>';
+
+    return $content;
+}
+
 function hca_avada_secondary_header() {
     if ( ! in_array( Avada()->settings->get( 'header_layout' ), array( 'v2', 'v3', 'v4', 'v5' ) ) ) {
         return;
