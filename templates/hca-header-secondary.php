@@ -23,6 +23,9 @@ $content_2 = avada_secondary_header_content( 'header_right_content' );
 		<img class="hca-banner hca-selected" src="/wp-content/themes/hcacademy-child/images/hca-banner-navigation.png" />
 	    </a>
 	</div>
+	<div class="hc-pmpro-exp-widget">
+	    [pmpro_expiration_date]
+	</div>
         <?php if ( $content_2 ) : ?>
             <div class="fusion-alignright"><?php echo $content_2; ?></div>
         <?php endif; ?>
