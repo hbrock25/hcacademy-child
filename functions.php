@@ -218,5 +218,34 @@ function hca_change_secondary_header_action() {
 }
 add_action( "init", "hca_change_secondary_header_action", 1000 );
 
+/* Add fields to PMPro mailchimp export */
+
+function my_pmpro_mailchimp_listsubscribe_fields($fields, $user)
+{
+
+    $level = pmpro_getMembershipLevelForUser($user->ID);
+    if(!empty($level->enddate))
+	$expiration_date = date(“d/m/Y”, $level->enddate);
+    else
+	$expiration_date = “N/A”;
+    $new_fields =  array(
+	"COMPANY" => $user->company, 
+	"ADDRESS" => $user->address, 
+	"CITY" => $user->city,
+	"STATE" => $user->state,
+	"ZIPCODE" => $user->zipcode,
+	"ENDDATE" => $expiration_date);
+
+    $fields = array_merge($fields, $new_fields);
+    return $fields;
+}
+add_action('pmpro_mailchimp_listsubscribe_fields', 'my_pmpro_mailchimp_listsubscribe_fields', 10, 2);
+
+/*
+	(Optional) Tell PMPro MailChimp to always synchronize user profile updates. By default it only synchronizes if the user's email has changed.
+	
+	Requires PMPro Mailchimp v2.0.3 or higher.
+*/
+add_filter('pmpromc_profile_update', '__return_true');
 
 
