@@ -230,16 +230,7 @@ function my_pmpro_mailchimp_listsubscribe_fields($fields, $user, $list)
 	$expiration_date = date("d/m/Y", $level->enddate);
     else
 	$expiration_date = "N/A";
-    $new_fields =  array(
-	"FNAME" => $user->first_name,
-	"LNAME" => $user->last_name,
-	"COMPANY" => $user->company, 
-	"ADDRESS" => $user->address, 
-	"CITY" => $user->city,
-	"STATE" => $user->state,
-	"POSTCODE" => $user->zipcode,
-	"COUNTRY" => $user->country,
-	"ENDDATE" => $expiration_date);
+    $new_fields =  array("ENDDATE" => $expiration_date);
 
     $fields = array_merge($fields, $new_fields);
     return $fields;
