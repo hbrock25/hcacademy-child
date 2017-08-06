@@ -239,7 +239,7 @@ function my_pmpro_mailchimp_listsubscribe_fields($fields, $user, $list)
 	"State" => $user->state,
 	"Postal Code" => $user->zipcode,
 	"Country" => $user->country,
-	"Expiration Date" => $expiration_date);
+	"ENDDATE" => $expiration_date);
 
     $fields = array_merge($fields, $new_fields);
     return $fields;
