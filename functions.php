@@ -46,7 +46,7 @@ return do_shortcode($content);
 }
 add_shortcode("protection_text", "pmpro_shortcode_protection_text");
 
-add_filter( 'tml_action_links', 'hc_add_back_register_link', 10, 2);
+// add_filter( 'tml_action_links', 'hc_add_back_register_link', 10, 2);
 
 /*
 	Shortcode to show a member's expiration date.
@@ -220,8 +220,10 @@ add_action( "init", "hca_change_secondary_header_action", 1000 );
 
 /* Add fields to PMPro mailchimp export */
 
-function my_pmpro_mailchimp_listsubscribe_fields($fields, $user)
+function my_pmpro_mailchimp_listsubscribe_fields($fields, $user, $list)
 {
+
+    $fields = pmpromc_pmpro_mailchimp_listsubscribe_fields($fields, $user, $list);
 
     $level = pmpro_getMembershipLevelForUser($user->ID);
     if(!empty($level->enddate))
@@ -242,7 +244,7 @@ function my_pmpro_mailchimp_listsubscribe_fields($fields, $user)
     $fields = array_merge($fields, $new_fields);
     return $fields;
 }
-add_action('pmpro_mailchimp_listsubscribe_fields', 'my_pmpro_mailchimp_listsubscribe_fields', 10, 2);
+add_filter('pmpro_mailchimp_listsubscribe_fields', 'my_pmpro_mailchimp_listsubscribe_fields', 10, 3);
 
 /*
 	(Optional) Tell PMPro MailChimp to always synchronize user profile updates. By default it only synchronizes if the user's email has changed.
