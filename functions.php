@@ -225,9 +225,9 @@ function my_pmpro_mailchimp_listsubscribe_fields($fields, $user)
 
     $level = pmpro_getMembershipLevelForUser($user->ID);
     if(!empty($level->enddate))
-	$expiration_date = date(“d/m/Y”, $level->enddate);
+	$expiration_date = date("d/m/Y", $level->enddate);
     else
-	$expiration_date = “N/A”;
+	$expiration_date = "N/A";
     $new_fields =  array(
 	"First Name" => $user->first_name,
 	"Last Name" => $user->last_name,
