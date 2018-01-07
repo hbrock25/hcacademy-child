@@ -196,7 +196,7 @@ function pmpro_status_widget() {
 
     //get the user's level
     $level = pmpro_getMembershipLevelForUser($user_id);
-    $logout_url = wp_nonce_url( "/my-account/customer-logout");
+    $logout_url = esc_url( wp_nonce_url( "/my-account/customer-logout") );
 
 
     if(!empty($level) && !empty($level->enddate) && $level->id > 1)
