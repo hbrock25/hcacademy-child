@@ -200,9 +200,9 @@ function pmpro_status_widget() {
 
 
     if(!empty($level) && !empty($level->enddate) && $level->id > 1)
-	$content = 'Your HCA membership expires on ' . date(get_option('date_format'), $level->enddate) . '. | <a href="/renew">Renew</a> | <a href="/my-account">My Account</a> | <a href="' . $wc_logout_url . '">Logout</a>';
+	$content = 'Your HCA membership expires on ' . date(get_option('date_format'), $level->enddate) . '. | <a href="/renew">Renew</a> | <a href="/my-account">My Account</a> | <a href="' . wc_logout_url() . '">Logout</a>';
     else
-	$content = '<a href="/join">Join</a> | <a href="/my-account">My Account</a> | <a href="' . $wc_logout_url . '">Logout</a>';
+	$content = '<a href="/join">Join</a> | <a href="/my-account">My Account</a> | <a href="' . wc_logout_url() . '">Logout</a>';
 
     return $content;
 }
