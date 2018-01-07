@@ -196,11 +196,13 @@ function pmpro_status_widget() {
 
     //get the user's level
     $level = pmpro_getMembershipLevelForUser($user_id);
+    $logout_url = wp_nonce_url( "/my-account/customer-logout");
+
 
     if(!empty($level) && !empty($level->enddate) && $level->id > 1)
-	$content = 'Your HCA membership expires on ' . date(get_option('date_format'), $level->enddate) . '. | <a href="/renew">Renew</a> | <a href="/my-account">My Account</a> | <a href="/my-account/customer-logout">Logout</a>';
+	$content = 'Your HCA membership expires on ' . date(get_option('date_format'), $level->enddate) . '. | <a href="/renew">Renew</a> | <a href="/my-account">My Account</a> | <a href="' . $logout_url . '">Logout</a>';
     else
-	$content = '<a href="/join">Join</a> | <a href="/my-account">My Account</a> | <a href="/my-account/customer-logout">Logout</a>';
+	$content = '<a href="/join">Join</a> | <a href="/my-account">My Account</a> | <a href=""' . $logout_url . '">Logout</a>';
 
     return $content;
 }
@@ -222,9 +224,6 @@ add_action( "init", "hca_change_secondary_header_action", 1000 );
 
 function my_pmpro_mailchimp_listsubscribe_fields($fields, $user, $list)
 {
-
-    $fields = pmpromc_pmpro_mailchimp_listsubscribe_fields($fields, $user, $list);
-
     $level = pmpro_getMembershipLevelForUser($user->ID);
     if(!empty($level->enddate))
 	$expiration_date = date("d/m/Y", $level->enddate);
@@ -235,7 +234,7 @@ function my_pmpro_mailchimp_listsubscribe_fields($fields, $user, $list)
     $fields = array_merge($fields, $new_fields);
     return $fields;
 }
-add_filter('pmpro_mailchimp_listsubscribe_fields', 'my_pmpro_mailchimp_listsubscribe_fields', 10, 3);
+add_filter('pmpro_mailchimp_listsubscribe_fields', 'my_pmpro_mailchimp_listsubscribe_fields', 20, 3);
 
 /*
 	(Optional) Tell PMPro MailChimp to always synchronize user profile updates. By default it only synchronizes if the user's email has changed.
