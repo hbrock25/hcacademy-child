@@ -192,7 +192,7 @@ function pmpro_status_widget() {
 
     //no user ID? bail
     if(!$user_id)
-	return '<a href="/my-account">Login</a> | <a href="/join">Join</a>';
+	return '<a href="/academy/my-account">Login</a> | <a href="/academy/join">Join</a>';
 
     //get the user's level
     $level = pmpro_getMembershipLevelForUser($user_id);
