@@ -13,13 +13,13 @@ $content_2 = avada_secondary_header_content( 'header_right_content' );
 <div class="fusion-secondary-header">
     <div class="fusion-row">
         <div class="fusion-alignleft" >
-	    <a href="https://www.harpcolumn.com">
+	    <a href="https://harpcolumn.com">
 		<img class="hca-banner" src="/wp-content/themes/hcacademy-child/images/hc-banner-navigation.png" />
 	    </a>
-	    <a href="https://harpcolumnmusic.com">
+	    <a href="https://harpcolumn.com/music">
 		<img class="hca-banner" src="/wp-content/themes/hcacademy-child/images/hcm-banner-navigation.png" />
 	    </a>
-	    <a href="/">
+	    <a href="/academy">
 		<img class="hca-banner hca-selected" src="/wp-content/themes/hcacademy-child/images/hca-banner-navigation.png" />
 	    </a>
 	</div>
